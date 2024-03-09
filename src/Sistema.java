@@ -10,13 +10,13 @@ class Sistema {
         String cpf ="";
         var verificacao ="";
 
-        Scanner Verificacao = new Scanner(System.in);
+        Scanner verificacao = new Scanner(System.in);
         System.out.println("Digite seu nome completo: ");
-        nome_completo = Verificacao.nextLine();
+        nome_completo = verificacao.nextLine();
 
         System.out.println("Digite sua data de nascimento: ");
         System.out.println("Ex: xx/xx/xxxx");
-        data_de_nascimento =Verificacao.nextLine();
+        data_de_nascimento =verificacao.nextLine();
 
         System.out.println("Digite sem CPF com pontos e traços");
         System.out.println("Ex: 123.456.789-00");
