@@ -4,24 +4,36 @@ class Sistema {
     @SuppressWarnings("unused")
     private static String login, nome_completo, password, cpf, nascimento;
     public static void main(String[] args) {
+        if (setUser()) {
+            setRegistro();
+        }
+
         setUser();
         setRegistro();
     }
 
-    static void setUser() {
+    static boolean setUser() {
         @SuppressWarnings("resource")
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Seu Login: ");
-        login = in.nextLine();
+        try {
+            System.out.println("Seu Login: ");
+            login = in.nextLine();
+            if (login.length() == 0 ) {
+                return false;
+            }
+        } catch (Exeception e)
+        //Todos 
+        System.out.println("Erro" + e);
 
 
         System.out.println("Sua senha de acesso: ");
         System.out.println("Senha de 4 digitos: ");
         password = in.nextLine();
+        return true;
     }
 
-    static void setRegistro() {
+    static boolean setRegistro() {
 
         @SuppressWarnings("resource")
         Scanner in = new Scanner(System.in);
@@ -39,6 +51,7 @@ class Sistema {
 
         System.out.println("Verifição concluida com sucesso");
         System.out.println("Aguarde para os proximos passos");
+        return true;
     }
 
 }
