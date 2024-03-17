@@ -3,13 +3,11 @@ import java.util.Scanner;
 class Sistema {
     @SuppressWarnings("unused")
     private static String login, nome_completo, password, cpf, nascimento;
+    public static int erro = 0;
     public static void main(String[] args) {
         if (setUser()) {
             setRegistro();
         }
-
-        setUser();
-        setRegistro();
     }
 
     static boolean setUser() {
@@ -22,17 +20,37 @@ class Sistema {
             if (login.length() == 0 ) {
                 return false;
             }
-        } catch (Exeception e){
+        } catch (Exception e){
         //Todos 
         System.out.println("Erro" + e);
         }
 
-        System.out.println("Sua senha de acesso: ");
-        System.out.println("Senha de 4 digitos: ");
-        password = in.nextLine();
+        try {
+            do {
+                System.out.println("Sua senha de acesso: ");
+                password = in.nextLine(); 
+                
+                if (password.length() >= 4) {
+                    return true;
+                }
+
+                if(password.length() < 4){
+                    erro++;
+                }
+
+                if(erro >= 3){
+                    return false;
+                }
+
+            } while (true);
+            
+        } 
+        catch (Exception e) {
+            System.out.println("Senha deve conter 4 digitos no mínimo: " + e);
+        }
+
         return true;
     }
-
     static boolean setRegistro() {
 
         @SuppressWarnings("resource")
