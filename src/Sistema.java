@@ -22,10 +22,10 @@ class Sistema {
             if (login.length() == 0 ) {
                 return false;
             }
-        } catch (Exeception e)
+        } catch (Exeception e){
         //Todos 
         System.out.println("Erro" + e);
-
+        }
 
         System.out.println("Sua senha de acesso: ");
         System.out.println("Senha de 4 digitos: ");
