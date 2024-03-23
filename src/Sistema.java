@@ -15,16 +15,37 @@ class Sistema {
         Scanner in = new Scanner(System.in);
 
         try {
-            System.out.println("Seu Login: ");
-            login = in.nextLine();
-            if (login.length() == 0 ) {
-                return false;
-            }
+            do {
+                
+                System.out.println("Seu Login: ");
+                login = in.nextLine();
+                
+                if (login.length() >= 4) {
+                    break;
+                }
+
+                if (login.length() == 0 ) {
+                    erro++;
+                }
+
+                // limite minino
+                if(login.length() <= 3){
+                    erro++;
+                }
+
+                if(erro == 3){
+                    return false;
+                }
+
+            }while(true);
+
         } catch (Exception e){
-        //Todos 
-        System.out.println("Erro" + e);
+         
+            System.out.println("Erro" + e);
+        
         }
 
+// VALIDAÇÃO DA SENHA DO USUARIO
         try {
             do {
                 System.out.println("Sua senha de acesso: ");
@@ -51,6 +72,7 @@ class Sistema {
 
         return true;
     }
+    
     static boolean setRegistro() {
 
         @SuppressWarnings("resource")
@@ -71,5 +93,4 @@ class Sistema {
         System.out.println("Aguarde para os proximos passos");
         return true;
     }
-
 }
