@@ -78,8 +78,26 @@ class Sistema {
         @SuppressWarnings("resource")
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Nome completo: ");
-        nome_completo = in.nextLine();
+        //Validação do nome completo
+        try{
+            do{
+                System.out.println("Digite seu nome completo: ");
+                nome_completo = in.nextLine();
+
+                if(nome_completo.length()>= 15){
+                    break;
+                }
+                if(nome_completo.length()<15){
+                    erro++;
+                }
+                if(erro >= 3){
+                    return false;
+                }
+
+            } while (true);
+        }catch (Exception e) {
+            System.out.println("Seu nome deve contém no minimo 15 caracteres");
+        }
 
         System.out.println("Seu CPF: ");
         System.out.println("Ex: 123.456.789-00");
