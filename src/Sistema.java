@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 class Sistema {
-    @SuppressWarnings("unused")
     private static String login, nome_completo, password, cpf, nascimento;
     public static int erro = 0;
     public static void main(String[] args) {
@@ -84,28 +83,62 @@ class Sistema {
                 System.out.println("Digite seu nome completo: ");
                 nome_completo = in.nextLine();
 
-                if(nome_completo.length()>= 15){
+                if(nome_completo.length() >= 15){
                     break;
                 }
-                if(nome_completo.length()<15){
+
+                if(nome_completo.length() < 15){
                     erro++;
                 }
+
                 if(erro >= 3){
-                    return false;
+                    return true;
                 }
 
             } while (true);
         }catch (Exception e) {
             System.out.println("Seu nome deve contém no minimo 15 caracteres");
         }
+        
+        //VALIDAÇÃO DO CPF
+        try{
+            do{
+                System.out.println("Digite seu CPF ");
+                System.out.println("Siga o exemplo: 123.456.789-00");
+                cpf = in.nextLine();
 
-        System.out.println("Seu CPF: ");
-        System.out.println("Ex: 123.456.789-00");
-        cpf = in.nextLine();
+                if(cpf.length() == 14){
+                   break;
+                }
+                
+                else{
+                    System.out.println("CPF inválido! Siga o exemplo e insira novamente.");
+                }
 
-        System.out.println("Data de nascimento: ");
-        System.out.println("Ex: xx/xx/xxxx ");
-        nascimento = in.nextLine();
+            }while(true);
+
+        }catch(Exception e){
+            System.out.println("Algo deu errado, tente novamente!");
+        }
+
+        //VALIDAÇÃO DA DATA DE NASCIMENTO
+        try{
+            do{
+                System.out.println("Digite sua data de nascimento: ");
+                System.out.println("Ex: xx/xx/xxxx ");
+                nascimento = in.nextLine();
+
+                if(nascimento.length() == 10){
+                    break;
+                }
+                else{
+                    System.out.println("Formato errado");
+                }
+
+            }while(true);
+        }catch(Exception e){
+            System.out.println("Algo deu errado, tente novamente!");
+        }
 
         System.out.println("Verifição concluida com sucesso");
         System.out.println("Aguarde para os proximos passos");
