@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class Sistema {
-    private static String login, nome_completo, password, cpf, nascimento;
+    private static String login, nome_completo, password, cpf, nascimento, confirmacao;
     public static int erro = 0;
     public static void main(String[] args) {
         if (setUser()) {
@@ -138,6 +138,29 @@ class Sistema {
             }while(true);
         }catch(Exception e){
             System.out.println("Algo deu errado, tente novamente!");
+        }
+
+         //USUARIO DEVE COLOCAR SUA RESPOSTA FINAL SE SEU DADOS ESTÃO CORRETOS O MESMO COLOCA SIM, CASO CONTRARIO NÃO 
+        System.out.println("Digite 1 para confirmar seus dados");
+        System.out.println("Digite 2 para não confirmar seus dados");
+         
+        switch (confirmacao.length()) {
+            case 0:
+                System.out.println("Você não digitou nenhuma palavra.");
+                break;
+                
+            case 1:
+                System.out.println("Você confirmou seus dados");
+                System.out.println(nome_completo + cpf + nascimento);
+                break;
+
+            case 2:
+            System.out.println("Você não confirmou seus dados.");
+            break;
+
+            default:
+            System.out.println("Carregando...");
+                break;
         }
 
         System.out.println("Verifição concluida com sucesso");
