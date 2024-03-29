@@ -16,6 +16,7 @@ class Sistema {
         try {
             do {
                 
+                System.out.println("Seu login deve conter 4 letras ou mais");
                 System.out.println("Seu Login: ");
                 login = in.nextLine();
                 
@@ -83,11 +84,11 @@ class Sistema {
                 System.out.println("Digite seu nome completo: ");
                 nome_completo = in.nextLine();
 
-                if(nome_completo.length() >= 15){
+                if(nome_completo.length() >= 10){
                     break;
                 }
 
-                if(nome_completo.length() < 15){
+                if(nome_completo.length() < 10){
                     erro++;
                 }
 
@@ -97,7 +98,7 @@ class Sistema {
 
             } while (true);
         }catch (Exception e) {
-            System.out.println("Seu nome deve contém no minimo 15 caracteres");
+            System.out.println("Seu nome deve contém no minimo 10 caracteres");
         }
         
         //VALIDAÇÃO DO CPF
@@ -107,7 +108,7 @@ class Sistema {
                 System.out.println("Siga o exemplo: 123.456.789-00");
                 cpf = in.nextLine();
 
-                if(cpf.length() == 14){
+                if(cpf.length() >=9){
                    break;
                 }
                 
@@ -121,14 +122,14 @@ class Sistema {
             System.out.println("Algo deu errado, tente novamente!");
         }
 
-        //VALIDAÇÃO DA DATA DE NASCIMENTO
+        //VALIDAÇÃO DA DATA DE NASCIMENTO DO USUÁRIO
         try{
             do{
                 System.out.println("Digite sua data de nascimento: ");
                 System.out.println("Ex: xx/xx/xxxx ");
                 nascimento = in.nextLine();
 
-                if(nascimento.length() == 10){
+                if(nascimento.length() >= 8){
                     break;
                 }
                 else{
@@ -140,28 +141,29 @@ class Sistema {
             System.out.println("Algo deu errado, tente novamente!");
         }
 
-         //USUARIO DEVE COLOCAR SUA RESPOSTA FINAL SE SEU DADOS ESTÃO CORRETOS O MESMO COLOCA SIM, CASO CONTRARIO NÃO 
+         //USUARIO DEVE COLOCAR SUA RESPOSTA FINAL SE SEU DADOS ESTÃO CORRETOS O MESMO COLOCA SIM, CASO CONTRARIO NÃO
+        
         System.out.println("Digite 1 para confirmar seus dados");
-        System.out.println("Digite 2 para não confirmar seus dados");
+        System.out.println("Digite NÃO para não confirmar seus dados");
+        confirmacao = in.nextLine();
          
         switch (confirmacao.length()) {
-            case 0:
-                System.out.println("Você não digitou nenhuma palavra.");
-                break;
-                
             case 1:
                 System.out.println("Você confirmou seus dados");
-                System.out.println(nome_completo + cpf + nascimento);
                 break;
-
-            case 2:
-            System.out.println("Você não confirmou seus dados.");
-            break;
-
+                
+            case 3:
+                System.out.println("Você não confirmou seus dados.");
+                break;
             default:
-            System.out.println("Carregando...");
-                break;
         }
+
+    //CONFERINDO OS DADOS SALVOS PELO USUÁRIO
+    System.out.println("Abaixo estão seus dados");
+        System.out.println(nome_completo);
+        System.out.println(cpf);
+        System.out.println(nascimento);
+
 
         System.out.println("Verifição concluida com sucesso");
         System.out.println("Aguarde para os proximos passos");
