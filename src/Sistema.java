@@ -1,9 +1,11 @@
 import java.util.Scanner;
 
 class Sistema {
-    private static String login, nome_completo, password, cpf, nascimento, confirmacao;
+    private static String login, nome_completo, password, cpf, nascimento, confirmacao, produto;
     public static int erro = 0;
+    
     public static void main(String[] args) {
+        
         if (setUser()) {
             setRegistro();
         }
@@ -167,6 +169,142 @@ class Sistema {
 
         System.out.println("Verifição concluida com sucesso");
         System.out.println("Aguarde para os proximos passos");
+
+        //PROXIMOS PASSOS PARA ESTAR ADICIONANDO UM PRODUTO
+        //EX:ID DO PRODUTO/ NOME DO PRODUTO/ MARCA DO PRODUTO EX: COCA COLA/CATEGORIA DO PRODUTO EX: BEBIDAS// QUANTOS KG OU ML O PRODUTO TEM
+        //VALIDADE DO PRODUTO EX: 22/02/2025/ QUANTIDADE/ PREÇO/ FORNECEDOR
+
+        //VALIDAR  O PRODUTO 
+        try{
+            do{
+                System.out.println("Adicionar um produto");
+                System.out.println("ID DO PRODUTO");
+                produto = in.nextLine();
+
+                if(produto.length() >=1){
+                    break;
+                }
+                else{
+                    System.out.println("O produto precisa ter pelo menos um número no ID DO PRODUTO");
+                }
+                    
+            }while(true);
+        }catch(Exception e){
+            System.out.println("O produto precisa ter pelo menos um número no ID DO PRODUTO");
+        }
+        //NOME DO PRODUTO
+        try{
+            do{
+                System.out.println("NOME DO PRODUTO");
+                produto = in.nextLine();
+                if(produto.length() >1){
+                    break;
+                }
+                else{
+                    System.out.println("NOME DO PRODUTO PRECISA TER MAIS DE 1 CARACTERE ");
+                }
+
+            }while(true);
+        }catch(Exception e){
+            System.out.println("ERRO AO INSERIR O NOME DO PRODUTO");
+        }
+
+            //MARCA DO PRODUTO
+            try{
+                do{
+                    System.out.println("MARCA DO PRODUTO");
+                    produto = in.nextLine();
+                    if(produto.length()>=2){
+                        break;
+                    }
+
+                }while(true);
+            }catch(Exception e){
+                System.out.println("Erro ao adicionar a marca do produto: ");
+            }
+            //O PRODUTO E KG OU ML
+            try{
+                do{
+                    System.out.println("QUANTOS KGS OU ML O PRODUTO TEM");
+                    System.out.println("Siga o exemplo. 1.2KG ou 250ML");
+                    produto = in.nextLine();
+
+                    if(produto.length() >= 2){
+                        break;
+                    }
+                    else{
+                        System.out.println("Siga o exemplo. 1.2KG ou 250ML");
+                    }
+                }while (true);
+            }catch (Exception e){
+                System.out.println("Formato errado, tente novamente");
+            }
+            //CATEGORIA DO PRODUTO
+            //EX: BEBIDA, DOCE, VAREJO
+        System.out.println("CATEGORIA DO PRODUTO");
+        produto = in.nextLine(); 
+
+
+            //VALIDAR A DATA DE VALIDADE DO PRODUTO
+            try{
+                do{
+                    System.out.println("VALIDADE DO PRODUTO");
+                    produto = in.nextLine();
+
+                    if(produto.length() >= 3){
+                        break;
+                    }
+
+                    else{
+                        System.out.println("Erro ao adicionar a validade do produto, tente novamente");
+                    }
+            
+                }while (true);
+            }catch(Exception e){
+                System.out.println("Erro ao adicionar a validade do produto, tente novamente");
+            }
+            //QUANTIDADE DO PRODUTO EX: QUANTIDADE 5
+            try{
+                do{
+                    System.out.println("QUANTIDADE DO PRODUTO");
+                    produto = in.nextLine();
+                    if(produto.length()>= 1){
+                        break;
+                    }   
+                }while (true);
+            }catch(Exception e){
+                System.out.println("Erro ao adicionar a quantidade do produto, tente novamente");
+            }
+            //VERIFICAR O PREÇO DO PRODUTO
+            
+            try{
+                do{
+                    System.out.println("PREÇO DO PRODUTO EM REAL");
+                    produto = in.nextLine();
+                    if(produto.length() >= 4){
+                        break;
+                    }
+
+                }while (true);
+            }catch(Exception e){
+                System.out.println("O NÚMERO TEM QUE SER EM REAL EX: R$ 3.99");
+
+            }
+            //VALIDAR O NOME DO FORNECEDOR
+            try{
+                do{
+                    System.out.println("FORNECEDOR");
+                    produto = in.nextLine();
+                    if(produto.length() >= 5){
+                        break;
+                    }
+
+                }while(true);
+            }catch(Exception e){
+                System.out.println("INSIRA DE FORMA CORRETA. EX: FORNECEDOR DE ROUPAS DA EMPRESA XXXX");
+            }
+            //PRODUTO ADICIONADO/SALVO NO BANCO DE DADOS
         return true;
+
     }
 }
