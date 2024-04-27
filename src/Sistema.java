@@ -18,7 +18,7 @@ class Sistema {
         try {
             do {
                 
-                System.out.println("Seu login deve conter 4 letras ou mais");
+                //System.out.println("Seu login deve conter 4 letras ou mais");
                 System.out.println("Seu Login: ");
                 login = in.nextLine();
                 
@@ -32,6 +32,7 @@ class Sistema {
 
                 // limite minino
                 if(login.length() <= 3){
+                    System.out.println("Seu Login dever ter no minimo 4 letras");
                     erro++;
                 }
 
@@ -48,10 +49,16 @@ class Sistema {
         }
 
 // VALIDAÇÃO DA SENHA DO USUARIO
+//MÉTODO PARA VALIDAR A SENHA APENAS COM NÚMERO
+
+    //int erro = 0;
+    //boolean senhaValida = false;
+    //int password = 0;
+
         try {
             do {
                 System.out.println("Sua senha de acesso: ");
-                password = in.nextLine(); 
+                password = in.nextLine();
                 
                 if (password.length() >= 4) {
                     return true;
@@ -59,6 +66,7 @@ class Sistema {
 
                 if(password.length() < 4){
                     erro++;
+                    System.out.println("Sua senha tem que ter 4 digitos, tente novamente ");
                 }
 
                 if(erro >= 3){
@@ -157,6 +165,7 @@ class Sistema {
             case 3:
                 System.out.println("Você não confirmou seus dados.");
                 break;
+                
             default:
         }
 
@@ -303,8 +312,10 @@ class Sistema {
             }catch(Exception e){
                 System.out.println("INSIRA DE FORMA CORRETA. EX: FORNECEDOR DE ROUPAS DA EMPRESA XXXX");
             }
+            System.out.println("Produto adicionado no Sistema");
             //PRODUTO ADICIONADO/SALVO NO BANCO DE DADOS
         return true;
+        
 
     }
 }
