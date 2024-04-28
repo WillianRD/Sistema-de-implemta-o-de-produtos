@@ -57,27 +57,32 @@ class Sistema {
 
         try {
             do {
+
+        //Scanner senhaDoUsuario = new Scanner(System.in);
+        //int senhaDoLogin;
+        //System.out.println("Digite sua senha");
+        //senhaDoLogin = senhaDoUsuario.nextInt();
+
                 System.out.println("Sua senha de acesso: ");
                 password = in.nextLine();
                 
                 if (password.length() >= 4) {
-                    return true;
+                    break;
                 }
 
                 if(password.length() < 4){
                     erro++;
-                    System.out.println("Sua senha tem que ter 4 digitos, tente novamente ");
                 }
 
                 if(erro >= 3){
-                    return false;
+                    return true;
                 }
 
             } while (true);
             
         } 
         catch (Exception e) {
-            System.out.println("Senha deve conter 4 digitos no mínimo: " + e);
+            System.out.println("Sua senha não deve conter caracteres: " + e);
         }
 
         return true;
