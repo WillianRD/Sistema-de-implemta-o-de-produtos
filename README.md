@@ -1,4 +1,4 @@
-O ProductEase é um sistema simples e eficiente de cadastro de produtos desenvolvido em Java. 
+Um sistema simples e eficiente de cadastro de produtos desenvolvido em Java. 
 O objetivo do sistema é permitir que os usuários possam gerenciar e organizar informações relacionadas aos produtos de uma empresa.
 
 Funcionalidades
